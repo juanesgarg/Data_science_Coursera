@@ -88,7 +88,7 @@ def update_dashboard(selected_booster, selected_site, selected_orbit):
 
     # KPIs
     total_launches = len(df_filtered)
-    success_count = df_filtered['Outcome'].str.contains('Success').sum()
+    success_count = (df_filtered['Class'] == 1).sum()
     success_rate = (success_count / total_launches * 100) if total_launches > 0 else 0
     avg_payload = df_filtered['PayloadMass'].mean()
 
